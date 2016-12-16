@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>React Front End</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+
+    <!-- React -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.js"></script>
+
+    <!-- Socket.io -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js"></script>
+
+    <!-- custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <h1>Send 20 Bitcoins to Kids</h1>
+    <p>This is an one view application leveraging the ReactJS libraries for the front-end speaking to a Node controler with a MongoDB model.<p>
+    <div class="row">
+      <section id="kidReport" class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <h3>kid report</h3>
+        <div id="kidRoot"></div>
+      </section>
+      <aside class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+        <h3>crypto rates</h3>
+        <div id="exchangeRoot"></div>
+        <!--<script src="/socket.io/socket.io.js"></script>-->
+        <script>
+          var socket = io();
+          socket.on('BarTask', function (data) {
+            console.log(data);
+            socket.emit('FooTask', { socket: 'io' });
+          });
+        </script>
+      </aside>
+    </div><!-- end boostrap row -->
+  </body>
+  <script src="https://fb.me/react-15.0.1.js"></script>
+  <script src="https://fb.me/react-dom-15.0.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+  <script type="text/babel" src="kidsController.js"></script>
+  <script type="text/babel" src="exchangesController.js"></script>
+</html>

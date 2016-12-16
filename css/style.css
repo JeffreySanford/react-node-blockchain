@@ -1,0 +1,48 @@
+body {
+	margin: 0 auto;
+	width: 90%;
+	background-color: #88B04B;  /* pantone 2017 greenery */
+}
+
+article {
+	margin-bottom: 1.5em;
+	border: 2px solid #638B25; /* greenery compliment normal green */
+	color: #3F6209; /* greenery compliment dark green */
+	width:90%;
+	padding: .5em;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+ul::first {
+  text-align: right;
+}
+
+ul::last {
+  text-align: left;
+}
+
+li {
+	float: left;
+	width: 33%;
+	margin: 0 auto 0;
+}
+li::hover {
+  background-color: #FFF;
+}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: #FFFFFF;
+}
