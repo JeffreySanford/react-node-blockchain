@@ -13,7 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.js"></script>
 
     <!-- Socket.io -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 
     <!-- custom stylesheet -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -29,16 +29,17 @@
       <aside class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
         <h3>crypto rates</h3>
         <div id="exchangeRoot"></div>
-        <!--<script src="/socket.io/socket.io.js"></script>-->
-        <script>
-          var socket = io();
-          socket.on('BarTask', function (data) {
-            console.log(data);
-            socket.emit('FooTask', { socket: 'io' });
-          });
-        </script>
       </aside>
     </div><!-- end boostrap row -->
+
+    <!--<script src="/socket.io/socket.io.js"></script>-->
+    <!--<script>
+      var socket = io();
+      socket.on('BarTask', function (data) {
+        console.log(data);
+        socket.emit('FooTask', { socket: 'io' });
+      });
+    </script>-->
   </body>
   <script src="https://fb.me/react-15.0.1.js"></script>
   <script src="https://fb.me/react-dom-15.0.1.js"></script>
