@@ -1,30 +1,23 @@
-class Currency extends React.Component {
-    setCurrency(event) {
-    console.log(event.target.value);
-  }
-}
-
-
 var Kid = React.createClass({
-  render: function () {
+  render () {
     return (
-      <div id="rates-wrapper">
-        <div style={{  backgroundColor: '#638B25', width: '95%', height: '150px', margin: '1.5em 0 0 .5em' }}>
+      <div class="rates-wrapper">
+        <div class="kidCard" style={{  backgroundColor: '#638B25', width: '95%', height: '150px', margin: '1.5em 0 0 .5em' }}>
           <div class="row">
-            <div class="col-lg-8 col-md-8 col-sm-4 col-xs-4" name="kids" style= {{ float: 'left', textAlign: 'left', margin: '0 0 0 .5em' }}>
+            <div id="kid" class="col-lg-8 col-md-8 col-sm-4 col-xs-4 kid" name="kid">
               <h4>{this.props.name}</h4>
               <p>{this.props.link}</p>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" name="rates" style= {{ float:'right', textAlign: 'right', margin: '.5em .5em 0 0' }}>
-              <select defaultValue="Ethereum" style = {{ backgroundColor: '#88B04B', color: 'white', border: '1px solid white', padding: '3px' }}>
-                <option value="ETH" name="currency">Etherium ( 1.167 )</option>
-                <option value="LTE" name="currency">Litecoin ( 1.654 )</option>
-                <option value="DSH" name="currency">DASH ( 1.5 )</option>
-                <option disabled value="Alt Coin" name="currency">Alt Coin</option>
-              </select>
-              <br /><br />
-              <p>ETH is currently lowest through BTC-e at 1.167</p>
-              <p><i>20 BTC will trade for 23.34 ETH </i></p>
+            <div id="kidRate" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" name="kidRate">
+            <select id='coinType'>
+              <option value="ETH" name="currency">Etherium ( 1.167 )</option>
+              <option value="LTE" name="currency">Litecoin ( 1.654 )</option>
+              <option value="DSH" name="currency">DASH ( 1.5 )</option>
+              <option disabled value="Alt Coin" name="currency">Alt Coin</option>
+            </select>
+            <br /><br />
+            <p class="reportLowestTrade">ETH has the best exchange rate currently</p>
+            <p class="reportPropsedTrade"><i>20 BTC will trade for 23.34 ETH </i></p>
             </div>
           </div>
         </div>
@@ -34,6 +27,7 @@ var Kid = React.createClass({
 });
 
 var KidList = React.createClass({
+  
   render: function () {
     var kids = this.props.kids.map(function (kid, index) {
       return (
@@ -54,6 +48,9 @@ var KidList = React.createClass({
   }
 });
 
+class setExchange extends React.Component {
+  
+}
 // Could come from an API, LocalStorage, another component, etc...
 var kids = [
   { name:"Sam", link: "sam@mail.com", currency: "Ethereum"},

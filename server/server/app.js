@@ -9,7 +9,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-var server = require('https');
+var server = require('https').Server(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,7 +32,7 @@ app.use(function(req, res, next) {
 
 // socket.io communications
 var io = require('socket.io')(server);
-io.set('origins', '*:*');
+// io.set('origins', '*:*');
 io.on('connection', function (socket) {
   socket.emit('server', { hello: 'world' });
   socket.on('client', function (data) {
@@ -41,23 +41,16 @@ io.on('connection', function (socket) {
   });
 });
 
-// router.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
-
-
 /* GET home page. */
 app.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-app.get('/socket.io', function(req, res, next, socket) {
+app.get('localhost:3000/socket.io', function(req, res, next, socket) {
   console.log("socket.io response");
   socket.emit('server', { hello: 'world' });
   socket.on('client', function (data) {
-    console.log(data);
+    // console.log(data);
   });
 });
 
@@ -84,11 +77,13 @@ app.get('/btc_usd', function(req, res, next) {
 
       res.on('end', function () {
         theresults = JSON.parse(content);
-        console.log(theresults);
+        // console.log(theresults);
       });
+
   };
   http.request(options, callback).end();
   res.send(theresults) ; 
+  
 });
   
 // error handler

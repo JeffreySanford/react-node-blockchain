@@ -13,12 +13,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.js"></script>
 
     <!-- Socket.io -->
-    <script src="127.0.0.1:3000/node_modules/socket.io/socket.io.js">
-      socket = io.connect("", {port: 3000, transports: ["websocket"]});
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js">
+      socket = io.connect("https://localhost:3000", {port: 3000, transports: ["websocket"]});
       socket.on('server', function (data) {
         console.log(data);
-        console.log('server event');
-        socket.emit('client', { my: 'data' });
+        console.log('server event fired');
+        socket.emit('client', { jeffrey: 'this is a note from the client' });
       });
       socket.on('private message', function (from, msg) {
         console.log('I received a private message by ', from, ' saying ', msg);
@@ -36,11 +36,11 @@
     <h1>Send 20 Bitcoins to Kids</h1>
     <p>This is an one view application leveraging the ReactJS libraries for the front-end speaking to a Node controler with a MongoDB model.<p>
     <div class="row">
-      <section id="kidReport" class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+      <section id="kidReport" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
         <h3>kid report</h3>
         <div id="kidRoot"></div>
       </section>
-      <aside class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+      <aside class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <h3>crypto rates</h3>
         <div id="exchangeRoot"></div>
       </aside>
