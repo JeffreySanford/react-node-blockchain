@@ -48,68 +48,38 @@ var ExchangeList = React.createClass({
   }
 });
 
+function getCoinStats(method) {
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState === 4 && request.status === 200 && callback) {
+      console.log('callback fired');
+      callback(request.responseText);
+    } else {
+      console.log('event');
+    }
+  }
+  request.open('GET', 'https://localhost:3000/btc_usd', true);
+  request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+  request.send(data);
+}
+
+var data = getCoinStats();
+console.log(data);
+
 // Could come from an API, LocalStorage, another component, etc...
+// var oReq = new XMLHttpRequest();
+// oReq.open("GET", "http://localhost:3000/btc_usd");
+// oReq.onload = function () {
+//     console.log('DONE', xhr.readyState); // readyState will be 4
+// };
+// oReq.send();
+// console.log(frank);
+
 var exchanges = [
+  { name: "BTC-e", coinName:"Bitcoin", coinRate: "1.43", coinChange: "up"},
   { name: "BTC-e", coinName:"Etherium", coinRate: "1.432", coinChange: "down"},
   { name: "BTC-e", coinName:"Litecoin", coinRate: "1.23", coinChange: "up"},
   { name: "BTC-e", coinName:"DASH", coinRate: "1", coinChange: "none"},
 ];
 
 ReactDOM.render(<ExchangeList exchanges={exchanges} />, document.getElementById('exchangeRoot'));
-
-
-
-// var ProductItem = React.createClass({
-//   render: function () {
-//     return (
-//       <div>
-//         <h4>{this.props.name}</h4>
-//         <p>{this.props.last}</p>
-//       </div>
-//     );
-//   }
-// });
-
-// var ProductList = React.createClass({
-//   render: function () {
-//     var products = this.props.products.map(function (product, index) {
-//       return (
-//         <ProductItem
-//           key={index}
-//           name={product.name}
-//           last={product.last}
-//         />
-//       );
-//     });
-    
-//     return (
-//       <div>
-//         {products}
-//       </div>
-//     );
-//   }
-// });
-
-// // Could come from an API, LocalStorage, another component, etc...
-
-// var element = 'https://localhost:3000/btc_usd';
-// var oReq = new XMLHttpRequest();
-// oReq.open("GET", element, function(req, res, next) {
-//   res.on('data', (d) => {
-//     template = JSON.parse(d);
-//     console.log(template);
-
-//     var products = [
-//       { name: 'btc_usd', last: 435 },
-//       { name: 'Bacon', last: 3245 },
-//       { name: 'Coffee', last: 300 }
-//     ];
-//     ReactDOM.render(<ProductList products={products} />, document.getElementById('root'));
-//   });
-  
-//   res.on('error', (e) => {
-//     console.error(e);
-//   });
-// });
-// oReq.send();
-

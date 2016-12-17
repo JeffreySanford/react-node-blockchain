@@ -13,8 +13,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.js"></script>
 
     <!-- Socket.io -->
-    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="127.0.0.1:3000/node_modules/socket.io/socket.io.js">
+      socket = io.connect("", {port: 3000, transports: ["websocket"]});
+      socket.on('server', function (data) {
+        console.log(data);
+        console.log('server event');
+        socket.emit('client', { my: 'data' });
+      });
+      socket.on('private message', function (from, msg) {
+        console.log('I received a private message by ', from, ' saying ', msg);
+      });
 
+      socket.on('disconnect', function () {
+        io.emit('user disconnected');
+      });
+    </script>
+    
     <!-- custom stylesheet -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
@@ -32,14 +46,6 @@
       </aside>
     </div><!-- end boostrap row -->
 
-    <!--<script src="/socket.io/socket.io.js"></script>-->
-    <!--<script>
-      var socket = io();
-      socket.on('BarTask', function (data) {
-        console.log(data);
-        socket.emit('FooTask', { socket: 'io' });
-      });
-    </script>-->
   </body>
   <script src="https://fb.me/react-15.0.1.js"></script>
   <script src="https://fb.me/react-dom-15.0.1.js"></script>
@@ -48,5 +54,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
   <script type="text/babel" src="kidsController.js"></script>
+  <script type="text/babel" src="exchangesController.js"></script>
   <script type="text/babel" src="exchangesController.js"></script>
 </html>

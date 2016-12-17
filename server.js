@@ -1,26 +1,6 @@
-var app = require('express')();
-var server = require('http').Server(app);
-var swig = require('swig');
-var path = require('path');
-var io = require('socket.io')(server);
-
-// socket.io demo
-io.on('connection', function (socket) {
-  socket.emit('fooTask', { foo: 'bar' });
-  socket.on('barTask', function (data) {
-    console.log(data);
-  });
-});
-
-// view engine setup
-app.engine('html', swig.renderFile)
-app.set('view engine', 'html');
-
-// server and routing
-server.listen(3000);
-app.get('/', function (req, res) {
-  res.render('index');
-});
+// var express = require('express')
+// var io = require('socket.io');
+// var socket = io.connect('http://localhost:3000');
 
 // io.on('connection', function (socket) {
 //   socket.emit('server event', { foo: 'bar' });
@@ -28,6 +8,19 @@ app.get('/', function (req, res) {
 //     socket.broadcast.emit('update label', data);
 //   });
 // });  
+
+// var app = express()
+
+// // respond with "hello world" when a GET request is made to the homepage
+// app.get('/', function (req, res) {
+//   res.send('hello world')
+// })
+
+// app.get('/', function (req, res) {
+//   res.render('index');
+// });
+
+
 //   var arrayCurrencies = ['https://btc-e.com/api/3/ticker/ltc_usd','https://btc-e.com/api/3/ticker/btc_usd'];
 
 // app.get('/btc_usd', function(req, res) {
@@ -58,6 +51,72 @@ app.get('/', function (req, res) {
 
 // app.listen(3000);
 
+
+// app.listen(3000, function(){
+//   console.log('development server running on port 3000');
+// })
+
+
+
+
+
+
+
+
+
+// var express = require('express');
+// var swig = require('swig');
+// var path = require('path');
+// var io = require('socket.io');
+// var app = express()
+//   , server = require('https').createServer(app)
+//   , io = io.listen(server);
+
+// // view engine setup
+// app.engine('html', swig.renderFile)
+// app.set('view engine', 'html');
+
+// // server and routing
+
+// app.get('/', function (req, res) {
+//   res.render('index');
+// });
+
+// app.get('/btc_usd', function(req, res) {
+//   // console.log('response received');  
+//   var element = 'https://btc-e.com/api/3/ticker/btc_usd';
+//   var template;
+//   var h;
+
+//   https.get(element, (res) => {
+//     // console.log('statusCode:', res.statusCode);
+//     // console.log('headers:', res.headers);
+
+//   res.on('data', (d) => {
+//     template = JSON.parse(d);
+//     console.log(template);
+//     return template;
+//   });
+
+// }).on('error', (e) => {
+//   console.error(e);
+// });
+// h = ` <h1>Bitcoin to USD</h1>
+//       ${template}
+//       <p>Something</p>`;  
+// res.send(h);
+// process.stdout.write(d);
+// });
+
+// io.sockets.on('connection', function (socket) {
+//   socket.emit('news', { hello: 'world' });
+//   socket.on('my other event', function (data) {
+//     console.log(data);
+//   });
+// });
+
+
+// 
 
 
 
