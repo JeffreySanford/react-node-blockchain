@@ -26,8 +26,7 @@ var Kid = React.createClass({
   }
 });
 
-var KidList = React.createClass({
-  
+var KidList = React.createClass({  
   render: function () {
     var kids = this.props.kids.map(function (kid, index) {
       return (
