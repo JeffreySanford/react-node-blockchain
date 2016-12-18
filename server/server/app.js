@@ -52,11 +52,9 @@ function getCoinRates(url) {
 
     response.setEncoding('utf8');
     let rawData = '';
-    let parsedData = '';
     response.on('data', (chunk) => rawData += chunk);
     response.on('end', () => {
         parsedData = JSON.parse(rawData);
-        
         exchanges.push(parsedData)
         console.log("*** server triggered this object ***");
         console.log(parsedData);
@@ -67,27 +65,25 @@ function getCoinRates(url) {
     }).on('error', (e) => {
     console.log(`Got error: ${e.message}`);
     });
-}
-;
-app.get('/api/:eth_btc', function(req, res) {
+};
+
+app.get('/api/eth_btc', function(req, res) {
   getCoinRates('https://btc-e.com/api/3/ticker/eth_btc');
-  exchanges.btce = parsedData;
-  console.log(exchanges.btce);
-  res.send("<div><h1>Etherium</h1><p>Parsed date:" + parsedData);
-});
+  res.send("<div><h1>Etherium</h1><p>Parsed date:" + exchanges['eth_btc']);
+})
 
-app.get('/api/:ltc_btc', function(req, res) {
+app.get('/api/ltc_btc', function(req, res) {
   getCoinRates('https://btc-e.com/api/3/ticker/ltc_btc');
-  res.send("<div><h1>Litecoin</h1><p>Parsed date:" + parsedData);
-});
+  res.send("<div><h1>Litecoin</h1><p>Parsed date:" + exchanges['ltc_btc']);
+})
 
-app.get('/api/:dsh_btc', function(req, res) {
+app.get('/api/dsh_btc', function(req, res) {
   getCoinRates('https://btc-e.com/api/3/ticker/dsh_btc');
-  res.send("<div><h1>DASH</h1><p>Parsed date:" + parsedData);
-});
+  res.send("<div><h1>DASH</h1><p>Parsed date:" + exchanges['dsh_btc']);
+})
 
 /* GET home page. */
 app.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
-});
+})
 module.exports = app;
