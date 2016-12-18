@@ -12,7 +12,7 @@ article {
 	padding: .5em;
 }
 
-ul {
+/*ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -45,8 +45,8 @@ li a {
 
 li a:hover {
 	background-color: #FFFFFF;
-}
-.kidCard {
+}*/
+#kidCard {
 	background-color: #638B25;
 	width: 95%;
 	height: 150px;
@@ -62,7 +62,12 @@ li a:hover {
 #kidRate {
 	float: right;
 	text-align: right;
-	margin: .5em .5em 0 0;
+	margin: 1em 1em 0 0;
+}
+
+#kidRate p {
+	margin: 0;
+	padding: 0;
 }
 
 #coinType{
