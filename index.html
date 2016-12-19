@@ -14,11 +14,12 @@
 
     <!-- Socket.io -->
     <script src="https://cdn.socket.io/socket.io-1.4.5.js">
-      socket = io.connect("https://localhost:3000", {port: 3000, transports: ["websocket"]});
-      socket.on('server', function (data) {
+      socket = io.connect("https://localhost:3000");
+
+      var socket = io('http://localhost');
+      socket.on('price_change', function (data) {
         console.log(data);
-        console.log('server event fired');
-        socket.emit('client', { jeffrey: 'this is a note from the client' });
+        socket.emit('price_change', { my: 'data' });
       });
       socket.on('private message', function (from, msg) {
         console.log('I received a private message by ', from, ' saying ', msg);

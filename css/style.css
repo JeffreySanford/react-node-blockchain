@@ -46,7 +46,7 @@ li a {
 li a:hover {
 	background-color: #FFFFFF;
 }*/
-#kidCard {
+.kidCard {
 	background-color: #638B25;
 	width: 95%;
 	height: 150px;
