@@ -1,53 +1,3 @@
-var SelectCurrency = React.createClass({
-  getInitalStates: function() {
-    return {
-      title:  'Selected Currency',
-      currency: currency
-    } // ends return
-  }, // ends getInitialStates
-
-  render:  function() {
-    var showTitle;
-    var currency = 'Etherium';
-
-    // var options = [
-    //   { value: 'ETH', label: 'Etherium ( BTC-e )' },
-    //   { value: 'LTE', label: 'Litecoin ( Poloium )' },
-    //   { value: 'DSH', label: 'DASH ( BTC-e )' },
-    //   { value: 'ALT', label: 'Alt Coin', disabled: true }
-    // ]
-
-    function currencyChange(val) {
-        var el = document.getElementById("coinType");
-        var choice = el.options[el.selectedIndex].text;
-        console.log(choice);
-        el = document.getElementById("selCur")
-        el.innnerHTML = choice;
-        ReactDOM.render(<KidList kids={kids} />, document.getElementById('kidRoot'));
-    }
-    // if (this.state.show) {
-    //   showTitle = 'New';
-    // }
-
-    // // var displaySelect = {
-    // //   display: this.state.show ? 'block':'none',
-    // // color: 'red'
-    // }
-
-    return (
-      <div class="selectCurrencyState">
-        <select id='coinType' onChange={currencyChange} style={{	backgroundColor: '#88B04B', color: 'white', border: '1px solid white', padding: '3px' }}>
-          <option value="ETH" name="Etherium">Etherium ( BTC-e )</option>
-          <option value="LTE" name="Litecoin">Litecoin ( Polonium )</option>
-          <option value="DSH" name="DASH">DASH ( BTC-e )</option>
-          <option disabled value="ALT" name="Alt Coin">Alt Coin</option>
-        </select>
-        <h4 style={{ margin: '1em 0 0 0', padding: 0}}>{currency}</h4>
-      </div> // ends return container
-    ) // ends return
-  } // ends render
-});
-
 var Kid = React.createClass({
   render: function () {
     
@@ -62,7 +12,7 @@ var Kid = React.createClass({
               <i>Their chosen alt coin currency is <b>{this.props.currency}</b></i>
               </div>
               <div id="kidRate" class="col-lg-4 col-md-12 col-sm-12 col-xs-12" name="kidRate" style={{ fontSize: '1.5em', padding: '0em' }}>
-                <SelectCurrency />
+                
                 <p class="reportLowestTrade"  style={{ fontSize: '.8em' }}><span id="selCur">{this.props.currency}</span> has the best exchange rate currently</p>
                 <p class="reportPropsedTrade"  style={{ fontSize: '.8em' }}><i>20 BTC will trade for { 20 * 1.16 } ETH </i></p>
             </div>

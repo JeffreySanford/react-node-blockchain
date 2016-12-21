@@ -67,37 +67,86 @@ app.get('/socket.io', function(req, res, next, socket) {
 */
 
 var parsedData, exchange, url;
-var exchanges = Array.prototype;
-exchanges.btce = [];
+var exchanges =  new Object();
+var exchange, json;
 
-function getCoinRates(url) {
-//  Model for get coin information
-  var https = require("https");
 
-  https.get(url, (response) => {
+// function getCoinRates(url) {
+//   //  Model for get coin information
+//   var https = require("https");
 
-    response.setEncoding('utf8');
-    let rawData = '';
-    response.on('data', (chunk) => rawData += chunk);
-    response.on('end', () => {
-        parsedData = JSON.parse(rawData);
-        exchanges.btce.push(parsedData);
-        console.log("*** server triggered this object ***");
-        console.log(parsedData);
-        console.log("*** server stored exchange object ***");
-        console.dir(exchanges);
-        return exchanges;
-      });
-    }).on('error', (e) => {
-    console.log(`Got error: ${e.message}`);
-    });
-};
+//   https.get(url, (req) => {
+//     var body =[];
+//     req.on('data', function(chunk) {
+
+//     body.push(chunk);
+//     }).on('end', function() {
+//     body = Buffer.concat(body).toString();
+//     var exchange = body;
+
+//     var stringBuf = exchange.toString('utf-8')
+//     // console.log('buffer to string:', stringBuf)
+
+//     var stringify = JSON.stringify(stringBuf)
+//     // console.log('stringify:',stringify);
+
+//     json = JSON.parse(stringify);
+//     }).on('error', (e) => {
+//     console.error(e);
+//   });
+// }
 
 app.get('/api/eth_btc', function(req, res) {
-  getCoinRates('https://btc-e.com/api/3/ticker/eth_btc');
-  response = "<div><h1> Etherium </h1><p>Parsed date: " + exchanges['eth_btc'];
-  res.send(response);
-})
+   //  Model for get coin information
+  var https = require("https");
+  var url =  'https://btc-e.com/api/3/ticker/eth_btc';
+
+  https.get(url, (req) => {
+    var body =[];
+    req.on('data', function(chunk) {
+      console.log('inside response.on(data...)');
+      body.push(chunk);
+    }).on('end', function() {
+      console.log('inside response.on(end...)');
+      body = JSON.parse(body);
+      var stats = body.eth_btc;
+
+      dateReadable = new Date(stats.updated);
+
+      var response = "<div><h1> Etherium to Bitcoin </h1><ul style='list-style-type: none;'>Last Updated date: " + dateReadable + "<li>High: " + stats.high + "</li><li>Low: " + stats.low + "</li><li>Last: " + stats.last + "</li></ul>";
+      // res.json(body.eth_btc);
+      res.send(response);
+    }).on('error', (e) => {
+      console.error(e);
+    });
+  });
+});
+
+app.get('/api/json/eth_btc', function(req, res) {
+   //  Model for get coin information
+  var https = require("https");
+  var url =  'https://btc-e.com/api/3/ticker/eth_btc';
+
+  https.get(url, (req) => {
+    var body =[];
+    req.on('data', function(chunk) {
+      console.log('inside response.on(data...)');
+      body.push(chunk);
+    }).on('end', function() {
+      console.log('inside response.on(end...)');
+      body = JSON.parse(body);
+      var stats = body.eth_btc;
+
+      dateReadable = new Date(stats.updated);
+
+      var response = "<div><h1> Etherium to Bitcoin </h1><ul style='list-style-type: none;'>Last Updated date: " + dateReadable + "<li>High: " + stats.high + "</li><li>Low: " + stats.low + "</li><li>Last: " + stats.last + "</li></ul>";
+      // res.json(body.eth_btc);
+      res.json(stats);
+    }).on('error', (e) => {
+      console.error(e);
+    });
+  });
+});
 
 app.get('/api/ltc_btc', function(req, res) {
   getCoinRates('https://btc-e.com/api/3/ticker/ltc_btc');
