@@ -14,32 +14,13 @@
      <script type="text/babel" src="components/selectCurrency.js"></script>
     <script type="text/babel" src="container/kidsContainer.js"></script>
     <script type="text/babel" src="container/exchangesContainer.js"></script>
-   
-
-    <!-- Socket.io -->
-    <script src="https://cdn.socket.io/socket.io-1.4.5.js">
-      socket = io.connect("https://localhost:3000");
-
-      var socket = io('http://localhost');
-      socket.on('price_change', function (data) {
-        console.log(data);
-        socket.emit('price_change', { my: 'data' });
-      });
-      socket.on('private message', function (from, msg) {
-        console.log('I received a private message by ', from, ' saying ', msg);
-      });
-
-      socket.on('disconnect', function () {
-        io.emit('user disconnected');
-      });
-    </script>
     
     <!-- custom stylesheet -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-    <h1>Send 20 Bitcoins to Kids</h1>
-    <p>This is an one view application leveraging the ReactJS libraries for the front-end speaking to a Node controler with a MongoDB model.<p>
+    <h1 style="font-size: 1.8em;">Send 20 Bitcoins to Kids</h1>
+    <p>This is a single view, single page application leveraging the ReactJS libraries as a dynamic front-end framework. Node is used for the backend, Express as middleware for the external API exchanges  and to update the Mongo database.<p>
     <div class="row">
       <section id="kidReport" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
         <h3>kid report</h3>

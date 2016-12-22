@@ -16,7 +16,6 @@ var ExchangeList = React.createClass({
   render: function (coinExchanges) {
     var exchanges = this.props.coinExchanges.map(function (exchange, index) {
       return (
-        <div id="exchanges-wrapper" >
           <Exchange 
             key={exchange.key} 
             name = {exchange.name} 
@@ -24,22 +23,23 @@ var ExchangeList = React.createClass({
             rate={exchange.coinRate} 
             change={exchange.coinChange}
           />
-        </div>
       );
     });
     return (
-      <div style={{ margin: '1em 0 0 0'}}>
-        <div style = {{ backgroundColor: '#638B25' }}>
-          <div style = {{ fontSize: '1.4em' }}>BTC-e</div>     
-          {exchanges}
-        </div>
-        <div style = {{ backgroundColor: '#638B25', marginTop: '1.5em' }}>
-          <div style = {{ fontSize: '1.4em' }}>Poloniex</div>     
-          {exchanges}
-        </div>
-        <div style={{ marginTop: '1em'}}>
-          <i>more information coming here</i>
-          {coinExchanges}
+      <div id="exchanges-wrapper" >
+        <div style={{ margin: '1em 0 0 0'}}>
+          <div style = {{ backgroundColor: '#638B25' }}>
+            <div style = {{ fontSize: '1.4em' }}>BTC-e</div>     
+            {exchanges}
+          </div>
+          <div style = {{ backgroundColor: '#638B25', marginTop: '1.5em' }}>
+            <div style = {{ fontSize: '1.4em' }}>Poloniex</div>     
+            {exchanges}
+          </div>
+          <div style={{ marginTop: '1em'}}>
+            <i>more information coming here</i>
+            {coinExchanges}
+          </div>
         </div>
       </div>
     );

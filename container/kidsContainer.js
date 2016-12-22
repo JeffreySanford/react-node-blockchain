@@ -1,7 +1,7 @@
 var Kid = React.createClass({
   getInitialState: function() {
     return {
-      value: 'select'
+      value: 'not selected.'
     }
   },
   change: function(event){
@@ -21,14 +21,14 @@ var Kid = React.createClass({
               <i>Their chosen alt coin currency is <b>{this.state.value}</b></i>
             </div>
             <div id="kidRate" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" name="kidRate" style={{ fontSize: '1.5em', padding: '0em', float:'right' }}>
-              <select id='coinType' onChange={this.change} value={this.state.value} style={{	backgroundColor: '#88B04B', color: 'white', border: '1px solid white', padding: '3px 0',top: '1em', opacity: '.8' }}>
-                <option value="ETH" name="Etherium">Etherium ( BTC-e )</option>
-                <option value="LTE" name="Litecoin">Litecoin ( Polonium )</option>
-                <option value="DSH" name="DASH">DASH ( BTC-e )</option>
+              <select id='coinType' onChange={this.change} value={this.state.value} style={{	backgroundColor: '#88B04B', color: 'white', border: '1px solid white', padding: '3px 0',top: '1em', opacity: '.8', margin: '0 0em 1em 0', float: 'right' }}>
+                <option value="Etherium" name="ETH">Etherium ( BTC-e )</option>
+                <option value="Litecoin" name="LTE">Litecoin ( Polonium )</option>
+                <option value="DASH" name="DSH">DASH ( BTC-e )</option>
                 <option disabled value="ALT" name="Alt Coin">Alt Coin</option>
               </select>
-              <p class="reportLowestTrade"  style={{ fontSize: '.8em' }}><span id="selCur">{this.props.currency}</span> has the best exchange rate currently</p>
-              <p class="reportPropsedTrade"  style={{ fontSize: '.8em' }}><i>20 BTC will trade for { 20 * 1.16 } ETH </i></p>
+              <p class="reportLowestTrade"  style={{ clear: 'both', fontSize: '.7em' }}><span id="selCur">{this.props.currency}</span> has the best exchange rate currently</p>
+              <p class="reportPropsedTrade"  style={{ fontSize: '.6em' }}><i>20 BTC is { 20 * 1.16 } ETH </i></p>
             </div>
           </div>
         </div>
