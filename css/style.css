@@ -54,7 +54,6 @@ li a:hover {
 }
 
 #kid {
-	border: 1px solid green;
 	font-size: .9em;
 	float: left;
 	text-align: left;
@@ -68,7 +67,6 @@ li a:hover {
 }
 
 #kidRate {
-	border: 1px solid green;
 	float: right;
 	text-align: right;
 	margin: .5em .5em 0 0;
