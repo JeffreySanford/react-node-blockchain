@@ -1,12 +1,11 @@
 var Exchange = React.createClass({
   render: function () {
     return (
-      <div class="exchange-wrapper" style = {{  padding: '0em' }}>
-        
+      <div class="exchange-wrapper" style = {{  margin: '0 0 0 .5em', padding: '0em' }}>  
         <div className="row">
-          <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">{this.props.coinName}</div>
-          <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">{this.props.rate}</div>
-          <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">{this.props.change}</div>
+          <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">{this.props.coinName}</div>
+          <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">{this.props.rate}</div>
+          <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">{this.props.change}</div>
         </div>
       </div>
     );
@@ -15,21 +14,6 @@ var Exchange = React.createClass({
 
 var ExchangeList = React.createClass({
   render: function (coinExchanges) {
-    // var btc_usd = {"high":780,"low":771.139,"avg":775.5695,"vol":2767860.82022,"vol_cur":3563.78991,"last":775.011,"buy":775.011,"sell":775.01,"updated":1482018079};
-    // var array_btc_usd = $.map(btc_usd, function(value, index) {
-    //   return [value];
-    // });
-    
-    
-    // var stationsArr = []
-    // for (var i = 0; i < array_btc_usd.length; i++) {
-    //   stationsArr.push(
-    //      <div className="station">
-    //          {array_btc_usd.high}
-    //      </div>
-    //  )
-    // }
-    // console.dir(stationsArr);
     var exchanges = this.props.coinExchanges.map(function (exchange, index) {
       return (
         <div id="exchanges-wrapper" >

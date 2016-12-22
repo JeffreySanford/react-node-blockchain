@@ -54,20 +54,33 @@ li a:hover {
 }
 
 #kid {
+	border: 1px solid green;
+	font-size: .9em;
 	float: left;
 	text-align: left;
-	margin: 0 0 0 .5em;
+	margin: .5em 0 0 .5em;
+	width: 50%;
+}
+
+#kid p {
+	margin: 0;
+	font-size: 1.1em;
 }
 
 #kidRate {
+	border: 1px solid green;
 	float: right;
 	text-align: right;
-	margin: 1em 1em 0 0;
+	margin: .5em .5em 0 0;
+	font-size: .8em;
+	width: 40%;
 }
 
 #kidRate p {
-	margin: 0;
+	margin: .5em 0 0 0;
 	padding: 0;
+	font-size: .7em;
+	line-height: .8em;
 }
 
 #coinType{
@@ -75,4 +88,5 @@ li a:hover {
 	color: white;
 	border: 1px solid white;
 	padding: 3px;
+	font-size: .7em;
 }

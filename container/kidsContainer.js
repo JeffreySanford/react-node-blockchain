@@ -14,23 +14,21 @@ var Kid = React.createClass({
       <div class="rates-wrapper">
         <div class="kidCard" style={{  backgroundColor: '#638B25', width: '95%', height: '150px', margin: '1.5em 0 0 .5em' }}>
           <div class="row">
-            <div id="kid" class="col-lg-8 col-md-12 col-sm-12 col-xs-12 kid" name="kid">
+            <div id="kid" class="col-lg-8 col-md-8 col-sm-8 col-xs-8" name="kid" >
               <h4>{this.props.name}</h4>
               <p>{this.props.email}</p>
               <p>{this.props.link}</p>
-              <i>Their chosen alt coin currency is <b>{this.props.currency}</b></i>
-              </div>
-              <div id="kidRate" class="col-lg-4 col-md-12 col-sm-12 col-xs-12" name="kidRate" style={{ fontSize: '1.5em', padding: '0em' }}>
-                      <div class="selectCurrencyState"></div>
-                        <select id='coinType' onChange={this.change} value={this.state.value} style={{	backgroundColor: '#88B04B', color: 'white', border: '1px solid white', padding: '3px' }}>
-                          <option value="ETH" name="Etherium">Etherium ( BTC-e )</option>
-                          <option value="LTE" name="Litecoin">Litecoin ( Polonium )</option>
-                          <option value="DSH" name="DASH">DASH ( BTC-e )</option>
-                          <option disabled value="ALT" name="Alt Coin">Alt Coin</option>
-                        </select>
-                        <p>{this.state.value}</p>
-                <p class="reportLowestTrade"  style={{ fontSize: '.8em' }}><span id="selCur">{this.props.currency}</span> has the best exchange rate currently</p>
-                <p class="reportPropsedTrade"  style={{ fontSize: '.8em' }}><i>20 BTC will trade for { 20 * 1.16 } ETH </i></p>
+              <i>Their chosen alt coin currency is <b>{this.state.value}</b></i>
+            </div>
+            <div id="kidRate" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" name="kidRate" style={{ fontSize: '1.5em', padding: '0em', float:'right' }}>
+              <select id='coinType' onChange={this.change} value={this.state.value} style={{	backgroundColor: '#88B04B', color: 'white', border: '1px solid white', padding: '3px 0',top: '1em', opacity: '.8' }}>
+                <option value="ETH" name="Etherium">Etherium ( BTC-e )</option>
+                <option value="LTE" name="Litecoin">Litecoin ( Polonium )</option>
+                <option value="DSH" name="DASH">DASH ( BTC-e )</option>
+                <option disabled value="ALT" name="Alt Coin">Alt Coin</option>
+              </select>
+              <p class="reportLowestTrade"  style={{ fontSize: '.8em' }}><span id="selCur">{this.props.currency}</span> has the best exchange rate currently</p>
+              <p class="reportPropsedTrade"  style={{ fontSize: '.8em' }}><i>20 BTC will trade for { 20 * 1.16 } ETH </i></p>
             </div>
           </div>
         </div>
